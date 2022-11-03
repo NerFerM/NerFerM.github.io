@@ -11,6 +11,8 @@ export class Tab1Page {
 
   posts: Post[] = [];
 
+  habilitar = true;
+
   constructor(private postsService: PostsService) { }
 
   ngOnInit() {
@@ -19,20 +21,18 @@ export class Tab1Page {
 
   doRefresh(event) {
     this.loadData(event, true);
+    this.habilitar = true;
+    this.posts = [];
   }
 
   loadData( event?, pull: boolean = false ) {
-    if (pull) {
-      this.posts = [];
-    }
-    
     this.postsService.getPosts(pull).subscribe(resp => {
       console.log(resp);
       this.posts.push(...resp.posts);
       if (event) {
         event.target.complete();
         if (resp.posts.length === 0) {
-          event.target.disabled = true;
+          this.habilitar = false;
         }
       }
     });
