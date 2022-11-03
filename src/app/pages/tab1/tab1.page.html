@@ -10,13 +10,13 @@
 </ion-header>
 
 <ion-content color="light">
-  <!-- Actualizar -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-  <!-- Posts -->
   <app-posts [posts]="posts"></app-posts>
 
-  <!-- Scroll -->
-  <ion-infinite-scroll threshold="150`px" position="bottom" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll threshold="150px" position="bottom" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más vídeos...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>

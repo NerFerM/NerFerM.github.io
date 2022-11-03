@@ -17,8 +17,16 @@ export class Tab1Page {
     this.loadData();
   }
 
-  loadData( event? ) {
-    this.postsService.getPosts().subscribe(resp => {
+  doRefresh(event) {
+    this.loadData(event, true);
+  }
+
+  loadData( event?, pull: boolean = false ) {
+    if (pull) {
+      this.posts = [];
+    }
+    
+    this.postsService.getPosts(pull).subscribe(resp => {
       console.log(resp);
       this.posts.push(...resp.posts);
       if (event) {
