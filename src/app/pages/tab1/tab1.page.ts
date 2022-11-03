@@ -14,9 +14,19 @@ export class Tab1Page {
   constructor(private postsService: PostsService) { }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  loadData( event? ) {
     this.postsService.getPosts().subscribe(resp => {
       console.log(resp);
       this.posts.push(...resp.posts);
+      if (event) {
+        event.target.complete();
+        if (resp.posts.length === 0) {
+          event.target.disabled = true;
+        }
+      }
     });
   }
 

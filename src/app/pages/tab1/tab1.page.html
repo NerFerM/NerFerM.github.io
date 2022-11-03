@@ -11,7 +11,13 @@
 
 <ion-content color="light">
   <!-- Actualizar -->
+
   <!-- Posts -->
   <app-posts [posts]="posts"></app-posts>
+
   <!-- Scroll -->
+  <ion-infinite-scroll threshold="150`px" position="bottom" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más vídeos...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
