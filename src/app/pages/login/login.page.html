@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-slides class="mainSlide">
+  <ion-slides class="mainSlide" #mainSlide>
     <ion-slide>
       <form (ngSubmit)="login(formLogin)" #formLogin="ngForm">
         <ion-grid fixed>
@@ -45,10 +45,11 @@
 
         <ion-row>
           <ion-col>
-            <ion-slides>
+            <ion-slides [options]="avatarSlide">
               <ion-slide *ngFor="let avatar of avatars">
                 <ion-img class="pick-avatar" src="/assets/avatars/{{avatar.img}}"
-                [ngClass]="{ 'pick-avatar-seleccionado': avatar.seleccionado }"></ion-img>
+                [ngClass]="{ 'pick-avatar-seleccionado': avatar.seleccionado }"
+                (click)="selectAvatar(avatar)"></ion-img>
               </ion-slide>
             </ion-slides>
           </ion-col>
@@ -92,12 +93,12 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-        <ion-button shape="round" expand="full" size="small" fill="outline" color="tertiary">
+        <ion-button shape="round" expand="full" size="small" fill="outline" color="tertiary" (click)="mostrarLogin()">
           Entrar
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button shape="round" expand="full" size="small" fill="outline" color="tertiary">
+        <ion-button shape="round" expand="full" size="small" fill="outline" color="tertiary" (click)="mostrarRegistro()">
           Registrarme
         </ion-button>
       </ion-col>
