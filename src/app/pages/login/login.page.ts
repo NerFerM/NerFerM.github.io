@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -32,15 +32,21 @@ export class LoginPage implements OnInit {
     password: '123456'
   };
 
-  constructor( private usuarioService: UsuarioService) { }
+  constructor( private usuarioService: UsuarioService, private navCtrl: NavController) { }
 
   ngOnInit() {
     this.slides.lockSwipes(true);
   }
 
-  login (formLogin: NgForm) {
+  async login (formLogin: NgForm) {
     if (formLogin.invalid) { return; }
-    this.usuarioService.login(this.loginUser.email, this.loginUser.password);
+    const valido = await this.usuarioService.login(this.loginUser.email, this.loginUser.password);
+    if (valido) {
+      this.navCtrl.navigateRoot('/main/tabs/tab1', {animated: true});
+    }
+    else {
+      // email o contraseña no son correctos
+    }
   }
 
   register (formRegister: NgForm) {
