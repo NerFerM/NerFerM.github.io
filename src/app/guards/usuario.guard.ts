@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, CanLoad, Route, UrlSegment } from '@angular/router';
+import { CanLoad } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsuarioService } from '../services/usuario.service';
 
@@ -14,6 +14,5 @@ export class UsuarioGuard implements CanLoad {
   canLoad(): boolean | Observable<boolean> | Promise<boolean> {
     return this.usuarioService.validaToken();
   }
-
-
+  
 }

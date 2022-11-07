@@ -50,7 +50,7 @@ export class UsuarioService {
           this.storage.clear();
           resolve(false);
         }
-      });
+      })
     });
   }
 
@@ -73,7 +73,7 @@ export class UsuarioService {
 
     return new Promise<boolean> ( resolve => {
       const headers = new HttpHeaders({
-        'x-token': this.token
+        'x-token': this.token,
       });
       this.http.get(`${URL}/user/`, {headers}).subscribe(resp => {
         if (resp['ok']) {
