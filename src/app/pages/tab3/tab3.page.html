@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="end">
       <ion-button (click)="logout()" color="danger">
-        <ion-icon slot="icon-only" name="exit"></ion-icon>
+        <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -23,7 +23,7 @@
     </ion-col>
   </ion-row>
 
-  <app-avatar-selector></app-avatar-selector>
+  <app-avatar-selector (avatarSelect)="usuario.avatar = $event"></app-avatar-selector>
 
   <form (ngSubmit)="actualizar(formActualizar)" #formActualizar>
     <ion-row>
