@@ -37,7 +37,8 @@ export class LoginPage implements OnInit {
   registerUser: Usuario = {
     email: 'test',
     password: '123456',
-    nombre: 'Test'
+    nombre: 'Test',
+    avatar: 'default1.png'
   };
 
   constructor( private usuarioService: UsuarioService, private navCtrl: NavController, private uiService: UiServiceService ) { }
