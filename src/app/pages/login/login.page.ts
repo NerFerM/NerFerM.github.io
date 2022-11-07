@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IonSlides, NavController } from '@ionic/angular';
+import { Usuario } from 'src/app/interfaces/interfaces';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -32,7 +34,13 @@ export class LoginPage implements OnInit {
     password: '123456'
   };
 
-  constructor( private usuarioService: UsuarioService, private navCtrl: NavController) { }
+  registerUser: Usuario = {
+    email: 'test',
+    password: '123456',
+    nombre: 'Test'
+  };
+
+  constructor( private usuarioService: UsuarioService, private navCtrl: NavController, private uiService: UiServiceService ) { }
 
   ngOnInit() {
     this.slides.lockSwipes(true);
@@ -45,12 +53,18 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateRoot('/main/tabs/tab1', {animated: true});
     }
     else {
-      // email o contraseña no son correctos
+      this.uiService.presentAlert('Correo o contraseña no son correctos.');
     }
   }
 
-  register (formRegister: NgForm) {
-    console.log(formRegister.valid);
+  async register (formRegister: NgForm) {
+    if (formRegister.invalid) { return; }
+    const valido = await this.usuarioService.registro(this.registerUser);
+    if (valido) {
+      this.navCtrl.navigateRoot('/main/tabs/tab1', {animated: true});
+    } else {
+      this.uiService.presentAlert('Este correo electrónico ya existe.');
+    }
   }
 
   selectAvatar(avatar) {
