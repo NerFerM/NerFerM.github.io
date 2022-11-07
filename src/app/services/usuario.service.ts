@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -13,9 +13,10 @@ const URL = environment.url;
 export class UsuarioService {
 
   token: string = null;
+  usuario: Usuario = {};
 
-  constructor ( private navCtrl: NavController, private http: HttpClient, private _storage:Storage) {
-    this._storage.create();
+  constructor ( private navCtrl: NavController, private http: HttpClient, private storage: Storage) {
+    this.storage.create();
   }
 
   login(email: string, password: string) {
@@ -29,7 +30,7 @@ export class UsuarioService {
           resolve(true);
         } else {
           this.token = null;
-          this._storage.clear();
+          this.storage.clear();
           resolve(false);
         }
       });
@@ -46,15 +47,44 @@ export class UsuarioService {
           resolve(true);
         } else {
           this.token = null;
-          this._storage.clear();
+          this.storage.clear();
           resolve(false);
         }
       });
     });
   }
 
-   async saveToken( token: string ) {
+  async saveToken( token: string ) {
     this.token = token;
-    await this._storage.set('token', token);
+    await this.storage.set('token', token);
   }
+
+  async loadToken() {
+    this.token = await this.storage.get('token') || null;
+  }
+
+  async validaToken(): Promise<boolean> {
+    await this.loadToken();
+
+    if (!this.token) {
+      this.navCtrl.navigateRoot('/login');
+      return Promise.resolve(false);
+    }
+
+    return new Promise<boolean> ( resolve => {
+      const headers = new HttpHeaders({
+        'x-token': this.token
+      });
+      this.http.get(`${URL}/user/`, {headers}).subscribe(resp => {
+        if (resp['ok']) {
+          this.usuario = resp['usuario'];
+          resolve(true);
+        } else {
+          this.navCtrl.navigateRoot('/login');
+          resolve(false);
+        }
+      });
+    });
+  }
+
 }
