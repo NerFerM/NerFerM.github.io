@@ -13,7 +13,7 @@ const URL = environment.url;
 export class UsuarioService {
 
   token: string = null;
-  usuario: Usuario = {};
+  private usuario: Usuario = {};
 
   constructor ( private navCtrl: NavController, private http: HttpClient, private storage: Storage) {
     this.storage.create();
@@ -52,6 +52,13 @@ export class UsuarioService {
         }
       })
     });
+  }
+
+  getUsuario() {
+    if (!this.usuario._id) {
+      this.validaToken();
+    }
+    return {...this.usuario};
   }
 
   async saveToken( token: string ) {
