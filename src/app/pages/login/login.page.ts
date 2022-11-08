@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
   @ViewChild('mainSlide', {static: true}) slides: IonSlides;
 
   loginUser = {
-    email: 'smrcifp.nerea@gmail.com',
+    email: 'prueba1@test.com',
     password: '123456'
   };
 

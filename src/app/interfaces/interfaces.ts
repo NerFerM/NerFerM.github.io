@@ -8,7 +8,6 @@ export interface Post {
   vids?: string[];
   _id?: string;
   mensaje?: string;
-  coords?: string;
   usuario?: Usuario;
   created?: string;
 }
