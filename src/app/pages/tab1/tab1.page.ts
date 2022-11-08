@@ -17,6 +17,9 @@ export class Tab1Page {
 
   ngOnInit() {
     this.loadData();
+    this.postsService.nuevoPost.subscribe(post => {
+      this.posts.unshift(post);
+    });
   }
 
   doRefresh(event) {
