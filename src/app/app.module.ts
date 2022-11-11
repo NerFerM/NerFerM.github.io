@@ -7,9 +7,10 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
+import { VideoSanitizerPipe } from './pipes/video-sanitizer.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, VideoSanitizerPipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot()],
   providers: [Camera, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

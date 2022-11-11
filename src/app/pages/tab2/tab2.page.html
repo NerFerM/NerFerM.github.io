@@ -21,7 +21,7 @@
 
   <ion-row>
     <ion-col>
-      <ion-button expand="full" shape="round">
+      <ion-button expand="full" shape="round" (click)="library()">
         <ion-icon slot="start" name="folder-outline"></ion-icon>
         Galería
       </ion-button>
@@ -30,7 +30,7 @@
 
   <ion-row>
     <ion-col *ngFor="let video of TempVideos">
-      <img src="" />
+      <img [src]="video | videoSanitizer" />
     </ion-col>
   </ion-row>
 </ion-content>
