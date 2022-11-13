@@ -30,7 +30,7 @@ export class Tab2Page {
     this.post = {
       mensaje: '',
     };
-
+    this.tempVideos = [];
     this.route.navigateByUrl('/main/tabs/tab1');
   }
 
@@ -58,7 +58,7 @@ export class Tab2Page {
   procesarVideo( options: CameraOptions ) {
     this.camera.getPicture(options).then((videoData) => {
       const vid = window.Ionic.WebView.convertFileSrc(videoData);
-      console.log(vid);
+      this.postsService.subirVideo(videoData);
       this.tempVideos.push(vid);
     }, (err) => {
       //error
