@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/interfaces/interfaces';
 import { VideoPlayer } from '@awesome-cordova-plugins/video-player/ngx';
-declare var HKVideoPlayer;
 
 @Component({
   selector: 'app-post',
