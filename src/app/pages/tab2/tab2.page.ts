@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ToastController } from '@ionic/angular';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 declare var window: any;
 
@@ -20,6 +22,8 @@ export class Tab2Page {
   }
 
   constructor( private postsService: PostsService,
+    browserModule: BrowserModule,
+    common: CommonModule,
     private route: Router,
     private camera: Camera,
     toast: ToastController) {}

@@ -17,7 +17,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     PipesModule,
     ToastController,
     ExploreContainerComponentModule,
-    Tab2PageRoutingModule
+    Tab2PageRoutingModule,
+    CommonModule
   ],
   declarations: [Tab2Page]
 })
