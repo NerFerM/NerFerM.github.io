@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { ToastController } from '@ionic/angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +13,6 @@ declare var window: any;
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
   tempVideos: string[] = [];
 
   post = {
@@ -25,8 +23,7 @@ export class Tab2Page {
     browserModule: BrowserModule,
     common: CommonModule,
     private route: Router,
-    private camera: Camera,
-    toast: ToastController) {}
+    private camera: Camera,) {}
 
   async crearPost() {
     console.log(this.post);
@@ -46,6 +43,7 @@ export class Tab2Page {
       correctOrientation: true,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     };
+    this.procesarVideo(options);
   }
 
   library() {
@@ -59,14 +57,13 @@ export class Tab2Page {
     this.procesarVideo(options);
   }
 
-  procesarVideo( options: CameraOptions ) {
+  procesarVideo(options: CameraOptions) {
     this.camera.getPicture(options).then((videoData) => {
       const vid = window.Ionic.WebView.convertFileSrc(videoData);
       this.postsService.subirVideo(videoData);
       this.tempVideos.push(vid);
     }, (err) => {
-      //error
+      console.log(Error);
     });
   }
-
 }

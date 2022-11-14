@@ -18,7 +18,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     ToastController,
     ExploreContainerComponentModule,
     Tab2PageRoutingModule,
-    CommonModule
+    CommonModule,
+    RouterModule.forChild([{path: '', component: Tab2Page}])
   ],
   declarations: [Tab2Page]
 })

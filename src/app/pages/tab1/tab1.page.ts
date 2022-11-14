@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
 import { Post } from '../../interfaces/interfaces';
 
@@ -7,13 +7,11 @@ import { Post } from '../../interfaces/interfaces';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
-
+export class Tab1Page implements OnInit {
   posts: Post[] = [];
-
   habilitar = true;
 
-  constructor(private postsService: PostsService) { }
+  constructor (private postsService: PostsService) {}
 
   ngOnInit() {
     this.loadData();
@@ -22,13 +20,13 @@ export class Tab1Page {
     });
   }
 
-  doRefresh(event) {
+  doRefresh (event) {
     this.loadData(event, true);
     this.habilitar = true;
     this.posts = [];
   }
 
-  loadData( event?, pull: boolean = false ) {
+  loadData (event?, pull: boolean = false) {
     this.postsService.getPosts(pull).subscribe(resp => {
       console.log(resp);
       this.posts.push(...resp.posts);
@@ -40,5 +38,4 @@ export class Tab1Page {
       }
     });
   }
-
 }

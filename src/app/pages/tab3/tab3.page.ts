@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from '../../interfaces/interfaces';
+import { PostsService } from '../../services/posts.service';
 
 @Component({
   selector: 'app-tab3',
@@ -10,16 +11,16 @@ import { Usuario } from '../../interfaces/interfaces';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page implements OnInit {
-  
   usuario: Usuario = {};
 
-  constructor( private usuarioService: UsuarioService, private uiService: UiServiceService ) {}
+  constructor(private usuarioService: UsuarioService, private uiService: UiServiceService, private postsService: PostsService) {}
 
   ngOnInit() {
     this.usuario = this.usuarioService.getUsuario();
+    console.log(this.usuario);
   }
 
-  async actualizar( formActualizar: NgForm ) {
+  async actualizar(formActualizar: NgForm) {
     if (formActualizar.invalid) { return; }
     const actualizado = await this.usuarioService.updateUser(this.usuario);
     if (actualizado) {
@@ -30,7 +31,7 @@ export class Tab3Page implements OnInit {
   }
 
   logout() {
-
+    this.postsService.paginaPosts = 0;
+    this.usuarioService.logout();
   }
-
 }
