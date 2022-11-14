@@ -7,8 +7,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
-import { VideoSanitizerPipe } from './pipes/video-sanitizer.pipe';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { VideoSanitizerPipe } from './pipes/video-sanitizer.pipe';
 
 @NgModule({
   declarations: [AppComponent, VideoSanitizerPipe],

@@ -5,13 +5,8 @@ import { DomSanitizer } from '@angular/platform-browser';
   name: 'videoSanitizer'
 })
 export class VideoSanitizerPipe implements PipeTransform {
-
-  constructor( private domSanitizer: DomSanitizer ) {
-
+  constructor (private domSanitizer: DomSanitizer) {}
+  transform (vid: any): any {
+    return this.domSanitizer.bypassSecurityTrustUrl(vid);
   }
-
-  transform( vid: any ): any {
-    return this.domSanitizer.bypassSecurityTrustUrl( vid );
-  }
-
 }

@@ -1,10 +1,12 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { DomSanitizerPipe } from './dom-sanitizer.pipe';
 import { VideoSanitizerPipe } from "./video-sanitizer.pipe";
+import { VideoPipe } from "./video.pipe";
 
 @NgModule({
-    declarations: [VideoSanitizerPipe],
-    exports: [VideoSanitizerPipe]
+    declarations: [DomSanitizerPipe, VideoSanitizerPipe, VideoPipe],
+    exports: [DomSanitizerPipe, VideoSanitizerPipe, VideoPipe]
 })
 
-export class PipesModule { }
+export class PipesModule {}

@@ -11,13 +11,12 @@ const URL = environment.url;
   providedIn: 'root'
 })
 export class PostsService {
-
   paginaPosts = 0;
   nuevoPost = new EventEmitter<Post>();
 
-  constructor( private http: HttpClient, private usuarioService: UsuarioService, private fileTransfer: FileTransfer ) { }
+  constructor(private http: HttpClient, private usuarioService: UsuarioService, private fileTransfer: FileTransfer) { }
 
-  getPosts(pull: boolean = false) {
+  getPosts (pull: boolean = false) {
     if (pull) {
       this.paginaPosts = 0;
     }
@@ -25,7 +24,7 @@ export class PostsService {
     return this.http.get<RespuestaPosts>(`${URL}/posts/?pagina=${this.paginaPosts}`);
   }
 
-  crearPost( post ) {
+  crearPost (post) {
     const headers = new HttpHeaders({
       'x-token': this.usuarioService.token
     });
@@ -34,7 +33,7 @@ export class PostsService {
         this.nuevoPost.emit(resp['post']);
         resolve(true);
       });
-    })
+    });
   }
 
   subirVideo (vid: string) {
@@ -51,5 +50,4 @@ export class PostsService {
       console.log ('Error al cargar', err);
     });
   }
-
 }

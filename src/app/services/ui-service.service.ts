@@ -5,10 +5,9 @@ import { AlertController, ToastController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class UiServiceService {
+  constructor (private alertController: AlertController, private toastController: ToastController) { }
 
-  constructor( private alertController: AlertController, private toastController: ToastController ) { }
-
-  async presentAlert( message: string ) {
+  async presentAlert (message: string) {
     const alert = await this.alertController.create({
       message,
       buttons: ['OK']
@@ -16,11 +15,11 @@ export class UiServiceService {
     await alert.present();
   }
 
-  async presentToast ( message: string ) {
+  async presentToast (message: string) {
     const toast = await this.toastController.create({
       message,
       position: 'top',
-      duration: 1500,
+      duration: 1500
     });
     toast.present();
   }
