@@ -11,7 +11,6 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   @ViewChild('mainSlide', {static: true}) slides: IonSlides;
 
   loginUser = {
@@ -20,13 +19,13 @@ export class LoginPage implements OnInit {
   };
 
   registerUser: Usuario = {
-    email: 'test',
-    password: '123456',
-    nombre: 'Test',
+    email: '',
+    password: '',
+    nombre: '',
     avatar: 'default1.png'
   };
 
-  constructor( private usuarioService: UsuarioService, private navCtrl: NavController, private uiService: UiServiceService ) { }
+  constructor( private usuarioService: UsuarioService, private navCtrl: NavController, private uiService: UiServiceService ) {}
 
   ngOnInit() {
     this.slides.lockSwipes(true);
@@ -37,8 +36,7 @@ export class LoginPage implements OnInit {
     const valido = await this.usuarioService.login(this.loginUser.email, this.loginUser.password);
     if (valido) {
       this.navCtrl.navigateRoot('/main/tabs/tab1', {animated: true});
-    }
-    else {
+    } else {
       this.uiService.presentAlert('Correo o contraseña no son correctos.');
     }
   }
@@ -64,5 +62,4 @@ export class LoginPage implements OnInit {
     this.slides.slideTo(1);
     this.slides.lockSwipes(true);
   }
-
 }

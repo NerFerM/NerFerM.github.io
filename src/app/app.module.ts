@@ -8,10 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
-import { VideoSanitizerPipe } from './pipes/video-sanitizer.pipe';
 
 @NgModule({
-  declarations: [AppComponent, VideoSanitizerPipe],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot()],
   providers: [Camera, FileTransfer, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

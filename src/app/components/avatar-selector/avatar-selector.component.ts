@@ -6,7 +6,6 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./avatar-selector.component.scss'],
 })
 export class AvatarSelectorComponent implements OnInit {
-
   @Output() avatarSelect = new EventEmitter<string>;
   @Input() avatarActual = 'default1.png';
 
@@ -25,11 +24,11 @@ export class AvatarSelectorComponent implements OnInit {
     slidesPerView: 3.5
   };
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.avatars.forEach( avatar => avatar.seleccionado = false );
-    for ( const avatar of this.avatars ) {
+    this.avatars.forEach(avatar => avatar.seleccionado = false);
+    for (const avatar of this.avatars) {
       if (avatar.img === this.avatarActual) {
         avatar.seleccionado = true;
         break;
@@ -43,5 +42,4 @@ export class AvatarSelectorComponent implements OnInit {
     console.log(avatar.img);
     this.avatarSelect.emit(avatar.img);
   }
-
 }
