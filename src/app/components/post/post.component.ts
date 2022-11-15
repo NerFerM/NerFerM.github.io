@@ -7,20 +7,16 @@ import { VideoPlayer } from '@awesome-cordova-plugins/video-player/ngx';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
 })
+
 export class PostComponent implements OnInit {
   @Input() post: Post = {};
-
-  slideSoloOpts = {
-    allowSlideNext: false,
-    allowSlidePrev: false
-  }
 
   constructor(private videoPlayer: VideoPlayer) {}
 
   ngOnInit() {}
 
   play() {
-    this.videoPlayer.play("{{post.video}}").then(() => {
+    this.videoPlayer.play('{{post.vids}}').then(() => {
       console.log('Cargando vídeo');
     }).catch(err => {
       console.log(err);
