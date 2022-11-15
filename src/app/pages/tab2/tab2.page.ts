@@ -41,7 +41,7 @@ export class Tab2Page {
       destinationType: this.camera.DestinationType.NATIVE_URI,
       mediaType: this.camera.MediaType.VIDEO,
       correctOrientation: true,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+      sourceType: this.camera.PictureSourceType.CAMERA
     };
     this.procesarVideo(options);
   }
