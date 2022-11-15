@@ -48,10 +48,7 @@ export class Tab2Page {
 
   library() {
     const options: CameraOptions = {
-      quality: 40,
-      destinationType: this.camera.DestinationType.NATIVE_URI,
       mediaType: this.camera.MediaType.VIDEO,
-      correctOrientation: true,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     };
     this.procesarVideo(options);
