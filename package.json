@@ -44,6 +44,7 @@
     "cordova-plugin-video-player": "github:moust/cordova-plugin-videoplayer",
     "cordova-sqlite-storage": "^6.0.0",
     "ionicons": "^6.0.3",
+    "jetifier": "^2.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
