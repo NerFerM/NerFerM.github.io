@@ -18,7 +18,7 @@ import { VideoPlayer } from '@awesome-cordova-plugins/video-player/ngx';
     AvatarSelectorComponent
   ],
   imports: [
-    CommonModule, 
+    CommonModule,
     IonicModule,
     PipesModule
   ],
