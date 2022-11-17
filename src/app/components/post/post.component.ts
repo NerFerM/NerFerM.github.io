@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/interfaces/interfaces';
-import { VideoPlayer } from '@ionic-native/video-player/ngx';
+import { VideoPlayer } from '@awesome-cordova-plugins/video-player/ngx';
 
 @Component({
   selector: 'app-post',
@@ -16,7 +16,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {}
 
   play() {
-    this.videoPlayer.play('{{post.vids}}').then(() => {
+    this.videoPlayer.play("../../../../../clipdiving-server/dist/uploads/{{post.usuario._id}}/posts/{{post.vids}}").then(() => {
       console.log('Cargando vídeo');
     }).catch(err => {
       console.log(err);
