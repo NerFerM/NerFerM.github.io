@@ -18,7 +18,7 @@ export class PostComponent implements OnInit {
   ngOnInit() {}
 
   play() {
-    this.videoPlayer.play("domSanitizer.bypassSecurityTrustUrl(localhost:3000/posts/video/{{post.usuario._id}}/{{post.vids}})").then(() => {
+    this.videoPlayer.play("localhost:3000/posts/video/{{post.usuario._id}}/{{post.vids}}").then(() => {
       console.log('Cargando vídeo');
     }).catch(err => {
       console.log(err);
