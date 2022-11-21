@@ -9,12 +9,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content crossorigin="anonymous" >
+<ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <app-posts [posts]="posts"></app-posts>
+  <app-posts crossorigin="anonymous" [posts]="posts"></app-posts>
 
   <ion-infinite-scroll [disabled]="!habilitar" threshold="150px" position="bottom" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más vídeos...">
