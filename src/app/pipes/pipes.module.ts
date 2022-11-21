@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { DomSanitizerPipe } from './dom-sanitizer.pipe';
 import { VideoSanitizerPipe } from "./video-sanitizer.pipe";
 import { VideoPipe } from "./video.pipe";

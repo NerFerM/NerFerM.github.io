@@ -14,7 +14,7 @@ export class PostsService {
   paginaPosts = 0;
   nuevoPost = new EventEmitter<Post>();
 
-  constructor(private http: HttpClient, private usuarioService: UsuarioService, private fileTransfer: FileTransfer) { }
+  constructor (private http: HttpClient, private usuarioService: UsuarioService, private fileTransfer: FileTransfer) { }
 
   getPosts (pull: boolean = false) {
     if (pull) {

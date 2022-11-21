@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { ExploreContainerComponentModule } from 'src/app/explore-container/explore-container.module';
-
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
