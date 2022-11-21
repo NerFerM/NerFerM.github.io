@@ -9,15 +9,17 @@
   </ion-item>
 
   <ion-item lines="none">
-    <video width="100%" height="auto" controls preload="none">
-      <source src="../../../../../../clipdiving-server/dist/uploads/{{post.usuario._id}}/posts/{{post.vids}}" content-type="video/all" (click)="play()">
+    <video crossorigin="anonymous" width="100%" height="auto" controls preload="none">
+      <source crossorigin="anonymous" src="localhost:3000/posts/video/{{post.usuario._id}}/{{post.vids}}" content-type="video/all" (click)="play()">
    </video>
   </ion-item>
 
+  <!--
   <ion-item lines="none">
     <ion-icon slot="start" name="heart-outline"></ion-icon>
     <ion-icon slot="end" name="bookmark-outline"></ion-icon>
   </ion-item>
+  -->
 
   <ion-item lines="none">
     <ion-label text-wrap>
