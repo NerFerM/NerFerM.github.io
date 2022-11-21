@@ -19,11 +19,11 @@ export class Tab2Page {
     mensaje: '',
   }
 
-  constructor( private postsService: PostsService,
+  constructor (private postsService: PostsService,
     browserModule: BrowserModule,
     common: CommonModule,
     private route: Router,
-    private camera: Camera,) {}
+    private camera: Camera) {}
 
   async crearPost() {
     console.log(this.post);
