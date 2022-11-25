@@ -87,20 +87,14 @@
     <plugin name="cordova-sqlite-storage" spec="3.0.0" />
     <plugin name="cordova-plugin-geolocation" spec="4.0.1" />
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
-    <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
-        <string>Necesito tu autorización para saber tu ubicación</string>
-    </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
-        <string>Se necesita acceso para tomar fotos</string>
+        <string>Se necesita permiso para acceder a la cámara</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
-        <string>Se necesita acceso a la librería</string>
-    </edit-config>
-    <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
-        <string>Se necesita geolocation</string>
+        <string>Se necesita permiso para acceder a la librería</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryAddUsageDescription">
-        <string>Se necesita acceso para guardar las fotos</string>
+        <string>Se necesita permiso para guardar las fotos</string>
     </edit-config>
     <plugin name="cordova-plugin-file-transfer" spec="1.7.1" />
     <plugin name="cordova-plugin-file" spec="6.0.1" />

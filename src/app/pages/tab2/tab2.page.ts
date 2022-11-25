@@ -35,19 +35,21 @@ export class Tab2Page {
     this.route.navigateByUrl('/main/tabs/tab1');
   }
 
-  camara() {
-    const options: CameraOptions = {
-      quality: 40,
-      destinationType: this.camera.DestinationType.NATIVE_URI,
-      mediaType: this.camera.MediaType.VIDEO,
-      correctOrientation: true,
-      sourceType: this.camera.PictureSourceType.CAMERA
-    };
-    this.procesarVideo(options);
-  }
+  //camara() {
+  //  const options: CameraOptions = {
+  //    quality: 40,
+  //    destinationType: this.camera.DestinationType.NATIVE_URI,
+  //    mediaType: this.camera.MediaType.VIDEO,
+  //    correctOrientation: true,
+  //    sourceType: this.camera.PictureSourceType.CAMERA
+  //  };
+  //  this.procesarVideo(options);
+  //}
 
   library() {
     const options: CameraOptions = {
+      quality: 50,
+      destinationType: this.camera.DestinationType.NATIVE_URI,
       mediaType: this.camera.MediaType.VIDEO,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     };
