@@ -18,6 +18,8 @@ export class AvatarSelectorComponent implements OnInit {
     { img: 'default6.png', seleccionado: false },
     { img: 'default7.png', seleccionado: false },
     { img: 'default8.png', seleccionado: false },
+    { img: 'default9.png', seleccionado: false },
+    { img: 'default10.png', seleccionado: false }
   ];
 
   avatarSlide = {

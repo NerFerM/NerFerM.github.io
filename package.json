@@ -102,8 +102,7 @@
       "cordova-plugin-file": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "android"
     ]
   }
 }

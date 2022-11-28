@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
 
 declare var window: any;
 
@@ -19,11 +17,7 @@ export class Tab2Page {
     mensaje: '',
   }
 
-  constructor (private postsService: PostsService,
-    browserModule: BrowserModule,
-    common: CommonModule,
-    private route: Router,
-    private camera: Camera) {}
+  constructor (private postsService: PostsService, private route: Router, private camera: Camera) {}
 
   async crearPost() {
     console.log(this.post);
@@ -35,21 +29,10 @@ export class Tab2Page {
     this.route.navigateByUrl('/main/tabs/tab1');
   }
 
-  //camara() {
-  //  const options: CameraOptions = {
-  //    quality: 40,
-  //    destinationType: this.camera.DestinationType.NATIVE_URI,
-  //    mediaType: this.camera.MediaType.VIDEO,
-  //    correctOrientation: true,
-  //    sourceType: this.camera.PictureSourceType.CAMERA
-  //  };
-  //  this.procesarVideo(options);
-  //}
-
   library() {
     const options: CameraOptions = {
       quality: 50,
-      destinationType: this.camera.DestinationType.NATIVE_URI,
+      destinationType: this.camera.DestinationType.FILE_URI,
       mediaType: this.camera.MediaType.VIDEO,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     };

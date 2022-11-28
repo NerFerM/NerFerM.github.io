@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { Post, RespuestaPosts } from '../interfaces/interfaces';
 import { UsuarioService } from './usuario.service';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 
 const URL = environment.url;
 
@@ -14,7 +15,7 @@ export class PostsService {
   paginaPosts = 0;
   nuevoPost = new EventEmitter<Post>();
 
-  constructor (private http: HttpClient, private usuarioService: UsuarioService, private fileTransfer: FileTransfer) { }
+  constructor (private http: HttpClient, private usuarioService: UsuarioService, private fileTransfer: FileTransfer, private uiService: UiServiceService) { }
 
   getPosts (pull: boolean = false) {
     if (pull) {
@@ -39,6 +40,7 @@ export class PostsService {
   subirVideo (vid: string) {
     const options: FileUploadOptions = { 
       fileKey: 'video',
+      mimeType: "video/mp4",
       headers: {
         'x-token': this.usuarioService.token
       }
@@ -46,8 +48,10 @@ export class PostsService {
     const fileTransfer: FileTransferObject = this.fileTransfer.create();
     fileTransfer.upload(vid, `${URL}/posts/upload`, options).then (data => {
       console.log(data);
+      this.uiService.presentToast('El vídeo se ha cargado correctamente');
     }).catch(err => {
       console.log ('Error al cargar', err);
+      this.uiService.presentToast('Error al cargar el vídeo');
     });
   }
 }
