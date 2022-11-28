@@ -11,12 +11,12 @@
 
           <ion-row>
             <ion-col>
-              <ion-list>
-                <ion-item>
+              <ion-list class="ion-no-border">
+                <ion-item >
                   <ion-label>Email</ion-label>
                   <ion-input type="email" name="email" [(ngModel)]="loginUser.email" required></ion-input>
                 </ion-item>
-                <ion-item>
+                <ion-item class="ion-no-border">
                   <ion-label>Contraseña</ion-label>
                   <ion-input type="password" name="password" [(ngModel)]="loginUser.password" required></ion-input>
                 </ion-item>
@@ -77,12 +77,12 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-        <ion-button shape="round" expand="full" size="small" fill="outline" color="tertiary" (click)="mostrarLogin()">
+        <ion-button shape="round" expand="full" size="small" color="tertiary" (click)="mostrarLogin()">
           Entrar
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button shape="round" expand="full" size="small" fill="outline" color="tertiary" (click)="mostrarRegistro()">
+        <ion-button shape="round" expand="full" size="small" color="tertiary" (click)="mostrarRegistro()">
           Registrarme
         </ion-button>
       </ion-col>
