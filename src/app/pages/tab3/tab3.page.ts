@@ -20,7 +20,7 @@ export class Tab3Page implements OnInit {
     console.log(this.usuario);
   }
 
-  async actualizar(formActualizar: NgForm) {
+  async actualizar(formActualizar) {
     if (formActualizar.invalid) { return; }
     const actualizado = await this.usuarioService.updateUser(this.usuario);
     if (actualizado) {
