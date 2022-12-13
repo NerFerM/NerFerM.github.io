@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://proyecto-daw-woad.vercel.app'
+  url: 'https://proyecto-daw-woad.vercel.app'
 };
 
 /*
