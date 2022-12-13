@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://192.168.0.129:3000'
+  url: 'proyecto-daw-woad.vercel.app'
 };
 
 /*
